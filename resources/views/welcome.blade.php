@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-6" id="aboutus">
                 <img src="{{ asset('img/aboutus.svg') }}" alt="aboutus" class="img-fluid">
@@ -52,6 +52,7 @@
         </div>
     </div>
 
+    @include('our-team')
 
     <script>
         // Some random colors

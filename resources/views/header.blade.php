@@ -10,16 +10,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-2">
             <li class="mx-1 p-lg-0 p-1 my-1 my-lg-0 nav-item active bg-light rounded shadow">
-                <a class="nav-link text-dark" href="#">خانه</a>
+                <a class="nav-link text-dark" href="/#">خانه</a>
             </li>
             <li class="mx-1 p-lg-0 p-1 my-1 my-lg-0 nav-item active bg-light rounded shadow">
-                <a class="nav-link text-dark" href="#">فروشگاه</a>
+                <a class="nav-link text-dark" href="/#">فروشگاه</a>
             </li>
             <li class="mx-1 p-lg-0 p-1 my-1 my-lg-0 nav-item active bg-light rounded shadow">
-                <a class="nav-link text-dark" href="#aboutus">درباره ما</a>
+                <a class="nav-link text-dark" href="/#aboutus">درباره ما</a>
             </li>
             <li class="mx-1 p-lg-0 p-1 my-1 my-lg-0 nav-item active bg-light rounded shadow">
-                <a class="nav-link text-dark" href="#contactus">تماس با ما</a>
+                <a class="nav-link text-dark" href="/#contactus">تماس با ما</a>
             </li>
         </ul>
     </div>

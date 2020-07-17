@@ -14,6 +14,17 @@
 </head>
 <body>
 @include('header')
+
+@if (auth()->user()->isAdmin())
+    <div class="container mt-5 shadow">
+        <div class="row h-100 justify-content-center align-items-center bg-light rounded">
+            <a class="btn mx-2 my-2 btn-info rounded" href="{{ route('user.index') }}">مدیریت کاربران</a>
+            <a class="btn mx-2 my-2 btn-info rounded" href="{{ route('room.index') }}">مدیریت کلاس ها</a>
+            <a class="btn mx-2 my-2 btn-info rounded" href="{{ route('category.index') }}">مدیریت دسته بندی ها</a>
+        </div>
+    </div>
+@endif
+
 @yield('content')
 @include('footer')
 </body>

@@ -25,6 +25,6 @@
     </div>
 
     <div class="card-footer">
-        <a href="{{ $post->link }}" class="text-white btn-sm btn">مطالعه بیشتر ...</a>
+        <a href="{{ $post->link }}" class=" btn-sm btn">مطالعه بیشتر ...</a>
     </div>
 </div>

@@ -13,6 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','HomeController@index');
+Route::get('/','HomeController@index')->name('home');
 
 Route::get('/post/{post}','PostController@index')->name('post.show');
+
+Route::get('/login', 'HomeController@loginForm')->name('login')->middleware('guest');
+Route::post('/login', 'HomeController@login')->middleware('guest');
+
+Route::group(['middleware' => ['auth','admin'],'prefix' => 'admin'],function(){
+    Route::get('/', 'HomeController@admin')->name('admin.home');
+    Route::resource('/category', 'CategoryController');
+    Route::resource('/room', 'RoomController');
+    Route::resource('/user', 'UserController');
+});

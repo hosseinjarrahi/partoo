@@ -1,5 +1,7 @@
 <?php
 
+use App\Post;
+use App\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,7 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Post::truncate();
-        factory(\App\Post::class,10)->create();
+        Post::truncate();
+        User::truncate();
+
+        factory(Post::class,10)->create();
+        factory(User::class,1)->create();
     }
 }
