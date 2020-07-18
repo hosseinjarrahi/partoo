@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -20,13 +22,22 @@ class HomeController extends Controller
 
     public function loginForm()
     {
-        return view('admin.login');
+        return view('login');
+    }
+
+    public function register()
+    {
+        return view('register');
     }
 
     public function login(Request $request)
     {
-        if ($request->phone == '09126585265' && $request->password == '65214585a')
-            auth()->loginUsingId(1);
-        return redirect(route('admin.home'));
+        $user = User::where('phone', $request->phone)->get();
+        if (!!$user) {
+            if (Hash::check($request->password, $user->password))
+                auth()->loginUsingId(1);
+        }
+
+        return redirect(route('home'));
     }
 }

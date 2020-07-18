@@ -19,6 +19,8 @@ Route::get('/post/{post}','PostController@index')->name('post.show');
 
 Route::get('/login', 'HomeController@loginForm')->name('login')->middleware('guest');
 Route::post('/login', 'HomeController@login')->middleware('guest');
+Route::post('/register', 'HomeController@registerPost')->name('register.post')->middleware('guest');
+Route::get('/register', 'HomeController@register')->name('register')->middleware('guest');
 
 Route::group(['middleware' => ['auth','admin'],'prefix' => 'admin'],function(){
     Route::get('/', 'HomeController@admin')->name('admin.home');
