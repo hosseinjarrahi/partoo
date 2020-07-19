@@ -28,8 +28,8 @@
                                  class=" rounded bg-light shadow img-fluid">
                         </div>
                     @endif
-                    <div class="col-12 col-lg-11 mt-4 rounded shadow p-4 bg-light">
-                        {{ $post->body }}
+                    <div class="col-12 post col-lg-11 mt-4 rounded shadow p-4 bg-light ">
+                        {!! $post->body !!}
                     </div>
                 </div>
             </div>

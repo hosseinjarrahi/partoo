@@ -172,3 +172,8 @@ section .section-title {
     height: 120px;
     border-radius: 50%;
 }
+
+.post img{
+    width: 100% !important;
+    height: auto !important;
+}

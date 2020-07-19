@@ -15,6 +15,12 @@ class HomeController extends Controller
         return view('welcome', compact('posts'));
     }
 
+    public function post(Post $post)
+    {
+        $posts = Post::inRandomOrder()->limit(5)->get();
+        return view('post', compact('post', 'posts'));
+    }
+
     public function admin()
     {
         return view('admin.welcome');
@@ -32,12 +38,20 @@ class HomeController extends Controller
 
     public function login(Request $request)
     {
-        $user = User::where('phone', $request->phone)->get();
+        $user = User::where('phone', $request->phone)->first();
         if (!!$user) {
-            if (Hash::check($request->password, $user->password))
-                auth()->loginUsingId(1);
+            if (Hash::check($request->password, $user->password)) {
+                auth()->login($user);
+            }
         }
 
-        return redirect(route('home'));
+        return redirect(route('login'));
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+
+        return back();
     }
 }

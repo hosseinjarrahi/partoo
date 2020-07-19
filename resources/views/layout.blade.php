@@ -9,7 +9,7 @@
           integrity="sha384-vus3nQHTD+5mpDiZ4rkEPlnkcyTP+49BhJ4wJeJunw06ZAp+wzzeBPUXr42fi8If" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('main.css') }}">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+    @yield('head')
     <title>پرتو دانش</title>
 </head>
 <body>
@@ -21,6 +21,8 @@
             <a class="btn mx-2 my-2 btn-info rounded" href="{{ route('user.index') }}">مدیریت کاربران</a>
             <a class="btn mx-2 my-2 btn-info rounded" href="{{ route('room.index') }}">مدیریت کلاس ها</a>
             <a class="btn mx-2 my-2 btn-info rounded" href="{{ route('category.index') }}">مدیریت دسته بندی ها</a>
+            <a class="btn mx-2 my-2 btn-info rounded" href="{{ route('post.index') }}">مدیریت پست ها</a>
+
         </div>
     </div>
 @endif
@@ -44,4 +46,5 @@
         delay: 100,
     });
 </script>
+@yield('script')
 </html>

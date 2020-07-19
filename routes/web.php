@@ -15,10 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','HomeController@index')->name('home');
 
-Route::get('/post/{post}','PostController@index')->name('post.show');
+Route::get('/post/{post}','HomeController@post')->name('show.post');
 
+Route::get('/logout', 'HomeController@logout')->name('logout')->middleware('auth');
 Route::get('/login', 'HomeController@loginForm')->name('login')->middleware('guest');
-Route::post('/login', 'HomeController@login')->middleware('guest');
+Route::post('/login', 'HomeController@login')->name('login.post')->middleware('guest');
 Route::post('/register', 'HomeController@registerPost')->name('register.post')->middleware('guest');
 Route::get('/register', 'HomeController@register')->name('register')->middleware('guest');
 
@@ -27,4 +28,5 @@ Route::group(['middleware' => ['auth','admin'],'prefix' => 'admin'],function(){
     Route::resource('/category', 'CategoryController');
     Route::resource('/room', 'RoomController');
     Route::resource('/user', 'UserController');
+    Route::resource('/post', 'PostController');
 });

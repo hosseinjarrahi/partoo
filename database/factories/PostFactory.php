@@ -10,6 +10,6 @@ $factory->define(Post::class, function (Faker $faker) {
         'title' => $faker->text(10),
         'pic' => '/img/education.jpg',
         'short_desc' => $faker->text(30),
-        'body' => $faker->text(500),
+        'body' => null,
     ];
 });

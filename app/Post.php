@@ -3,11 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Te7aHoudini\LaravelTrix\Traits\HasTrixRichText;
 
 class Post extends Model
 {
+    use HasTrixRichText;
+
+    protected $guarded = ['id'];
+
     public function getLinkAttribute()
     {
-        return route('post.show',['post' => $this->id]);
+        return route('show.post',['post' => $this->id]);
     }
 }

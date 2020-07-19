@@ -21,7 +21,7 @@ $factory->define(User::class, function (Faker $faker) {
     return [
         'name' => 'مدیر',
         'phone' => '09126585265',
-        'password' => '65214585a', // password
+        'password' => bcrypt('65214585a'), // password
         'role' => 'admin', // password
     ];
 });
