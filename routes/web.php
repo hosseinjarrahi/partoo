@@ -17,6 +17,7 @@ Route::get('/','HomeController@index')->name('home');
 
 Route::get('/post/{post}','HomeController@post')->name('show.post');
 
+Route::get('/my-class', 'HomeController@myClass')->name('my.class')->middleware('auth');
 Route::get('/logout', 'HomeController@logout')->name('logout')->middleware('auth');
 Route::get('/login', 'HomeController@loginForm')->name('login')->middleware('guest');
 Route::post('/login', 'HomeController@login')->name('login.post')->middleware('guest');

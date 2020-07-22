@@ -25,7 +25,7 @@
                         <div class="col-12 col-lg-11  mt-4">
                             <img src="{{ asset($post->pic) }}"
                                  alt="pic"
-                                 class=" rounded bg-light shadow img-fluid">
+                                 class="d-block mx-auto rounded bg-light shadow img-fluid">
                         </div>
                     @endif
                     <div class="col-12 post col-lg-11 mt-4 rounded shadow p-4 bg-light ">

@@ -21,6 +21,18 @@ class HomeController extends Controller
         return view('post', compact('post', 'posts'));
     }
 
+    public function myClass()
+    {
+        $cats = auth()->user()->categories;
+        $rooms = collect([]);
+        foreach ($cats as $c)
+        {
+            $rooms->push($c->rooms);
+        }
+
+        return view('my-class', compact('rooms'));
+    }
+
     public function admin()
     {
         return view('admin.welcome');

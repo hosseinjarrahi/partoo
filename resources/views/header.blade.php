@@ -33,7 +33,7 @@
 
             @auth
                 <li class="mx-1 p-lg-0 p-1 my-1 my-lg-0 nav-item active bg-primary rounded shadow">
-                    <a class="nav-link" href="/my-classes">کلاس های من</a>
+                    <a class="nav-link" href="/my-class">کلاس های من</a>
                 </li>
                 <li class="mx-1 p-lg-0 p-1 my-1 my-lg-0 nav-item active bg-danger rounded shadow">
                     <a class="nav-link" href="/logout">خروج</a>
