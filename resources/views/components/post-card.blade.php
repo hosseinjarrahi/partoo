@@ -1,4 +1,4 @@
-<div class="card promoting-card neo shadow" {{ $attributes }} data-aos="fade-up-right">
+<div class="card promoting-card neo shadow" {{ $attributes }}>
     <div class="card-body d-flex flex-row">
         <img src="{{ asset('img/avatar.svg') }}" class="rounded-circle mr-3" height="50px" width="50px" alt="avatar">
         <div>
@@ -18,7 +18,7 @@
 
     <div class="card-body">
         <div class="collapse-content">
-            <p class="card-text" id="collapseContent">{{ $post->short_desc }}</p>
+            <p class="card-text" id="collapseContent">{!! $post->short_desc  !!}</p>
             <a class="btn btn-flat red-text p-1 my-1 mr-0 mml-1 collapsed" data-toggle="collapse"
                href="#collapseContent" aria-expanded="false" aria-controls="collapseContent"></a>
         </div>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Post;
+use App\Slide;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -12,7 +14,9 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::latest()->limit(3)->get();
-        return view('welcome', compact('posts'));
+        $slides = Slide::all();
+        $categories = Category::whereHas('posts')->get();
+        return view('welcome', compact('posts','slides','categories'));
     }
 
     public function post(Post $post)
@@ -65,5 +69,12 @@ class HomeController extends Controller
         auth()->logout();
 
         return back();
+    }
+
+    public function category(Category $category)
+    {
+        $posts = $category->posts()->paginate(10);
+
+        return view('category',compact('posts'));
     }
 }

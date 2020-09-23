@@ -23,6 +23,7 @@ Route::get('/login', 'HomeController@loginForm')->name('login')->middleware('gue
 Route::post('/login', 'HomeController@login')->name('login.post')->middleware('guest');
 Route::post('/register', 'HomeController@registerPost')->name('register.post')->middleware('guest');
 Route::get('/register', 'HomeController@register')->name('register')->middleware('guest');
+Route::get('/category/{category}', 'HomeController@category')->name('category.home');
 
 Route::group(['middleware' => ['auth','admin'],'prefix' => 'admin'],function(){
     Route::get('/', 'HomeController@admin')->name('admin.home');
@@ -30,4 +31,5 @@ Route::group(['middleware' => ['auth','admin'],'prefix' => 'admin'],function(){
     Route::resource('/room', 'RoomController');
     Route::resource('/user', 'UserController');
     Route::resource('/post', 'PostController');
+    Route::resource('/slide', 'SlideController');
 });

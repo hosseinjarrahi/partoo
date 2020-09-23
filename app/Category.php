@@ -21,4 +21,9 @@ class Category extends Model
     {
         return $this->hasMany(Category::class,'parent_id');
     }
+
+    public function posts()
+    {
+        return $this->morphedByMany(Post::class, 'model','categories_models');
+    }
 }

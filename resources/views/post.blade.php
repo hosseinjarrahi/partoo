@@ -8,8 +8,8 @@
                 <h4 class="text-center bg-orange p-2 rounded shadow mb-3">مطالب دیگر</h4>
 
                 <div class="container">
-                    @foreach($posts as $post)
-                        <x-post-card :post="$post" style="margin-top: 10px;"></x-post-card>
+                    @foreach($posts as $p)
+                        <x-post-card :post="$p" style="margin-top: 10px;"></x-post-card>
                     @endforeach
                 </div>
 

@@ -8,8 +8,13 @@
             </div>
         </div>
     </div>
-    @include('slider')
-    <div class="container">
+
+    {{--    @include('categories',['categories' => $categories])--}}
+
+    @include('slider',['slides' => $slides])
+
+
+    <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-12 d-flex justify-content-center my-3">
                 <h5 class="rounded shadow p-2 px-4 bg-light">آخرین مطالب سایت</h5>
@@ -25,13 +30,38 @@
     </div>
 
     <div class="container my-5">
+        @foreach($categories as $category)
+            <div class="row  my-5 justify-content-center">
+                <div class="col-12 d-flex justify-content-center my-3">
+                    <a class="btn mx-1 my-1 btn-light shadow px-5"
+                       href="{{ route('category.home',['category' => $category->id]) }}">
+                        {{ $category->name }}
+                    </a>
+                </div>
+                @php($posts = $category->posts()->orderByDesc('id')->paginate(3))
+
+                @foreach($posts as $post)
+                    <div class="col-12 rtl my-1 col-lg-4">
+                        <x-post-card
+                            :post="$post"
+                        ></x-post-card>
+                    </div>
+                @endforeach
+            </div>
+        @endforeach
+    </div>
+
+
+    <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-6" id="aboutus">
                 <img src="{{ asset('img/aboutus.svg') }}" alt="aboutus" class="img-fluid">
                 <article class="text-justify rounded shadow p-2 py-3 px-4 bg-light">
                     <h3 class="mb-3 mx-auto text-center">درباره ما</h3>
-                    <p>آموزشگاه پرتودانش با هدف خدمت رسانی به قشر دانش آموز و تلاش هرچه بیشتر جهت ارتقا فرهنگ ایران عزیزمان شکل گرفته است.</p>
-                    <p>این مجموعه در نظر دارد کلاس های تقویتی ، تیزهشان و آمادگی برای کنکور سراسری را به صورت حضوری و غیر حضوری و آنلاین ، توسط معلمین متعهد ، با تجربه و دلسوز برگزار دارد.</p>
+                    <p>آموزشگاه پرتودانش با هدف خدمت رسانی به قشر دانش آموز و تلاش هرچه بیشتر جهت ارتقا فرهنگ ایران
+                        عزیزمان شکل گرفته است.</p>
+                    <p>این مجموعه در نظر دارد کلاس های تقویتی ، تیزهشان و آمادگی برای کنکور سراسری را به صورت حضوری و
+                        غیر حضوری و آنلاین ، توسط معلمین متعهد ، با تجربه و دلسوز برگزار دارد.</p>
                 </article>
             </div>
             <div class="col-12 col-lg-6" id="contactus">
@@ -50,7 +80,7 @@
         </div>
     </div>
 
-{{--    @include('our-team')--}}
+    {{--    @include('our-team')--}}
 
     <script>
         // Some random colors

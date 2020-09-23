@@ -1,9 +1,5 @@
 @extends('layout')
 
-@section('head')
-    @trixassets
-@endsection
-
 @section('content')
 
     <div class="container rtl">
@@ -11,13 +7,8 @@
         <div class="container mt-3">
             <div class="row p-3 h-100 justify-content-center align-items-center bg-light rounded">
                 <div class="col-12">
-                    <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('slide.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
-
-                        <div class="form-group">
-                            <label for="">عنوان مطلب</label>
-                            <input type="text" class="form-control" name="title">
-                        </div>
 
                         <div class="form-group">
                             <label for="">تصویر مطلب</label>
@@ -25,17 +16,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="">توضیحات کوتاه</label>
-                            <textarea class="form-control" name="short_desc"></textarea>
-                        </div>
-
-                        ادامه مطلب:
-
-                        @trix(\App\Post::class, 'content')
-
-                        <div class="form-group">
                             <label for="">دسته بندی کلاس</label>
-                            <select id="slim" class="form-control" name="categories[]" multiple>
+                            <select id="slim" class="form-control" name="category">
                                 @foreach($categories as $c)
                                     <option value="{{ $c->id }}">{{ $c->name }}</option>
                                 @endforeach
@@ -54,16 +36,16 @@
 
                 <table class="table  table-hover table-striped ">
                     <tr>
-                        <th> عنوان مطلب</th>
+                        <th>اسلاید</th>
                         <th> حذف</th>
-                        <th> ویرایش</th>
+{{--                        <th> ویرایش</th>--}}
                     </tr>
-                    @foreach($posts as $post)
+                    @foreach($slides as $slide)
                         <tr>
-                            <td>{{ $post->title }}</td>
-                            <td><a class="btn btn-primary" href="{{ route('post.edit',['post' => $post->id]) }}">ویرایش</a></td>
+                            <td ><img style="height: 100px;" src="{{ $slide->pic }}" class="img-fluid"></td>
+{{--                            <td><a class="btn btn-primary" href="{{ route('slide.edit',['slide' => $slide->id]) }}">ویرایش</a></td>--}}
                             <td>
-                                <form action="{{ route('post.destroy',['post' => $post->id]) }}" method="post">
+                                <form action="{{ route('slide.destroy',['slide' => $slide->id]) }}" method="post">
                                     @csrf
                                     @method('delete')
                                     <button class="btn btn-danger">حذف</button>

@@ -22,7 +22,7 @@
             <a class="btn mx-2 my-2 btn-info rounded" href="{{ route('room.index') }}">مدیریت کلاس ها</a>
             <a class="btn mx-2 my-2 btn-info rounded" href="{{ route('category.index') }}">مدیریت دسته بندی ها</a>
             <a class="btn mx-2 my-2 btn-info rounded" href="{{ route('post.index') }}">مدیریت پست ها</a>
-
+            <a class="btn mx-2 my-2 btn-info rounded" href="{{ route('slide.index') }}">مدیریت اسلاید ها</a>
         </div>
     </div>
 @endif

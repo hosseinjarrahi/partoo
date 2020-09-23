@@ -15,4 +15,9 @@ class Post extends Model
     {
         return route('show.post',['post' => $this->id]);
     }
+
+    public function categories()
+    {
+        return $this->morphToMany(Category::class, 'model','categories_models');
+    }
 }
